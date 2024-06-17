@@ -16,19 +16,28 @@ class _MapPageState extends State<MapPage> {
   GoogleMapController? _controller;
   double latitude = 7.8774222;
   double longitude = 80.7003428;
+
   LatLng googlePlex = LatLng(0, 0);
 
   @override
   void initState() {
     super.initState();
-    FirebaseDatabase.instance.ref().child("latitude").onValue.listen((event) {
+    FirebaseDatabase.instance
+        .ref()
+        .child("Device/latitude")
+        .onValue
+        .listen((event) {
       setState(() {
         latitude = double.parse(event.snapshot.value.toString());
         googlePlex = LatLng(latitude, longitude);
         _controller?.animateCamera(CameraUpdate.newLatLng(googlePlex));
       });
     });
-    FirebaseDatabase.instance.ref().child("longitude").onValue.listen((event) {
+    FirebaseDatabase.instance
+        .ref()
+        .child("Device/longitude")
+        .onValue
+        .listen((event) {
       setState(() {
         longitude = double.parse(event.snapshot.value.toString());
         googlePlex = LatLng(latitude, longitude);
@@ -40,7 +49,9 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: GoogleMap(
+        mapType: MapType.satellite,
         onMapCreated: (GoogleMapController controller) {
           _controller = controller;
         },

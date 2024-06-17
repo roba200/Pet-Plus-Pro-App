@@ -54,6 +54,7 @@ class _SensorCardState extends State<SensorCard> {
                 Text(
                   widget.data,
                   style: TextStyle(
+                      overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       fontSize: 40),

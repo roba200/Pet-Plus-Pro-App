@@ -17,7 +17,7 @@ class _MoodCardState extends State<MoodCard> {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.deepPurpleAccent,
+            color: Color.fromARGB(255, 91, 224, 96),
             boxShadow: [
               BoxShadow(blurRadius: 5, spreadRadius: 1, color: Colors.grey)
             ],
