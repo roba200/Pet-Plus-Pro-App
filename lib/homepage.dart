@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pet_plus_pro/components/mood_card.dart';
 import 'package:pet_plus_pro/components/sensor_card.dart';
+import 'package:pet_plus_pro/history_page.dart';
 import 'package:pet_plus_pro/map_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -49,7 +50,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HistoryPage()));
+                },
+                icon: Icon(Icons.history))
+          ],
+        ),
         floatingActionButton: FloatingActionButton(
             child: Icon(FontAwesomeIcons.map),
             onPressed: () {

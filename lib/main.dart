@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pet_plus_pro/category_page.dart';
 import 'package:pet_plus_pro/firebase_options.dart';
-import 'package:pet_plus_pro/homepage.dart';
+import 'package:pet_plus_pro/history_page.dart';
+import 'package:pet_plus_pro/test.dart';
+import 'package:workmanager/workmanager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
