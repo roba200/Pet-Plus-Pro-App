@@ -47,6 +47,13 @@ class _CategoryPageState extends State<CategoryPage> {
                   ],
                 ),
               ),
+              // Size Considerations:
+              // •  Small: Typically up to 20 pounds (9 kg)
+              // •  Medium: Between 20 to 60 pounds (9 to 27 kg)
+              // •  Big: Over 60 pounds (27 kg)
+
+              Text(
+                  "Size Considerations:\n •  Small: Typically up to 20 pounds (9 kg)\n •  Medium: Between 20 to 60 pounds (9 to 27 kg) \n •  Big: Over 60 pounds (27 kg)"),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 20),

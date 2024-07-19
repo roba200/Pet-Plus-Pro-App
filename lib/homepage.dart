@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String heartRate = "0";
   String steps = "0";
+  String battery = "0";
 
   @override
   void initState() {
@@ -42,6 +43,16 @@ class _HomePageState extends State<HomePage> {
         steps = event.snapshot.value.toString();
       });
     });
+
+    FirebaseDatabase.instance
+        .ref()
+        .child("Device/battery_percentage")
+        .onValue
+        .listen((event) {
+      setState(() {
+        battery = event.snapshot.value.toString();
+      });
+    });
     // TODO: implement initState
     super.initState();
   }
@@ -51,6 +62,10 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Icon(Icons.battery_4_bar_outlined), Text("${battery}%")],
+          ),
           actions: [
             IconButton(
                 onPressed: () {
